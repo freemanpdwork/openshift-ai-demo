@@ -29,6 +29,22 @@ eval $(crc oc-env)
 oc login -u kubeadmin https://api.crc.testing:6443
 oc whoami
 ```
+### Build container image
+```shell 
+podman build --platform linux/amd64 -t quay.io/<repository>/<repository_name>
+quay.io/<repository>/<repository_name>
+```
+
+### Deploy container to 
+```shell
+oc create -f k8s.yaml
+```
+
+### Clean up
+```shell
+oc delete -f k8s.yaml
+
+```
 
 ### Issues
 ```shell
