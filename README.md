@@ -29,3 +29,18 @@ eval $(crc oc-env)
 oc login -u kubeadmin https://api.crc.testing:6443
 oc whoami
 ```
+
+### Issues
+```shell
+Error: unable to start host networking: "could not find \"gvproxy\" in one of [/usr/local/opt/podman/libexec /opt/homebrew/bin /opt/homebrew/opt/podman/libexec /usr/local/bin /usr/local/libexec/podman /usr/local/lib/podman /usr/libexec/podman /usr/lib/podman $BINDIR/../libexec/podman].  To resolve this error, set the helper_binaries_dir key in the `[engine]` section of containers.conf to the directory containing your helper binaries."
+```
+#### Fix
+```
+1. Download gvproxy from the gvisor-tap-vsock release page. https://github.com/containers/gvisor-tap-vsock/releases
+2. mv ~/Downloads/gvisor-darwin /opt/homebrew/bin/gvproxy
+3. chmod 755 /opt/homebrew/bin/gvproxy
+4. Add the helpers_binaries_dir entry to ~/.config/containers/conf
+ex. 
+[engine]
+  helper_binaries_dir=["/opt/homebrew/bin/"]
+```
