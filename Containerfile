@@ -1,28 +1,35 @@
-FROM python:3.8-slim
+# Use the official Node.js image as a parent image
+FROM node:14-alpine as build
 
-RUN groupadd --gid 1000 appuser \
-    && useradd --uid 1000 --gid 1000 -ms /bin/bash appuser
+# Set the working directory in the Docker container
+WORKDIR /app
 
-RUN pip3 install --no-cache-dir --upgrade \
-    pip \
-    virtualenv
+# Copy the package.json and package-lock.json files into the container at /app
+COPY package*.json ./
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    software-properties-common \
-    git
+# Install the dependencies
+RUN npm install
 
-USER appuser
-WORKDIR /home/appuser
+# Copy the local files into the container at /app
+COPY . .
 
-RUN git clone https://github.com/streamlit/streamlit-example.git app
+# Build the application
+RUN npm run build
 
-ENV VIRTUAL_ENV=/home/appuser/venv
-RUN virtualenv ${VIRTUAL_ENV}
-RUN . ${VIRTUAL_ENV}/bin/activate && pip install -r app/requirements.txt
+# Start from a smaller image to reduce image size
+FROM node:14-alpine as run
 
-EXPOSE 8501
+# Set the working directory in the Docker container
+WORKDIR /app
 
-COPY run.sh /home/appuser
-ENTRYPOINT ["./run.sh"]
+# Copy over dependencies
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/.next ./.next
+COPY --from=build /app/public ./public
+COPY --from=build /app/package*.json ./
 
+# Expose port 3000 for the app to be accessible externally
+EXPOSE 3000
+
+# Command to run the application
+CMD ["npm", "start"]

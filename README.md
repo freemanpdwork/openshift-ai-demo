@@ -1,4 +1,7 @@
 # openshift-ai-demo
+WIP
+
+This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
 ### Requirements
 - 4 physical CPU cores
@@ -29,21 +32,24 @@ eval $(crc oc-env)
 oc login -u kubeadmin https://api.crc.testing:6443
 oc whoami
 ```
-### Build container image
+### Build container image example
 ```shell 
-podman build --platform linux/amd64 -t quay.io/<repository>/<repository_name>
+podman build -f Containerfile -t quay.io/<repository>/<repository_name>
 quay.io/<repository>/<repository_name>
 ```
 
 ### Deploy container to 
 ```shell
-oc create -f k8s.yaml
+oc create -f deployment.yaml
+oc create -f service.yaml
+
+todo: create route. add openai key  
 ```
 
 ### Clean up
 ```shell
-oc delete -f k8s.yaml
-
+oc delete -f deployment.yaml
+oc delete -f service.yaml
 ```
 
 ### Issues
