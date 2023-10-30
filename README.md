@@ -46,11 +46,12 @@ git clone git@github.com:freemanpdwork/openai-quickstart-node.git
 cd openai-quickstart-node
 cp ../Containerfile . 
 podman build -f Containerfile -t quay.io/<repository>/<repository_name>
-quay.io/<repository>/<repository_name>
 ```
 
 ### Deploy container to 
 ```shell
+vim deployment.yaml
+update "image: quay.io/<repository>/<repository_name>"
 oc create -f deployment.yaml
 oc create -f service.yaml
 oc create -f route.yaml
