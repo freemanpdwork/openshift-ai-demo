@@ -3,7 +3,7 @@ WIP
 
 This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). These steps cover how to deploy the app on [OpenShift Local](https://developers.redhat.com/products/openshift-local/overview), however, it's also K8's agnostic. 
 
-This project is based on https://github.com/openai/openai-quickstart-node
+This project is based on [https://github.com/openai/openai-quickstart-node](https://github.com/freemanpdwork/openai-quickstart-node)
 
 ### Requirements
 - 4 physical CPU cores
