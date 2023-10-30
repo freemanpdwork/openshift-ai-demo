@@ -9,9 +9,16 @@ This project is based on [openai-quickstart-node](https://github.com/freemanpdwo
 - 4 physical CPU cores
 - 9 GB of free memory
 - 35 GB of storage space
+- Homebrew
 - quay.io account
 - openai.com account, credits, and api key 
 - Note: tested on MacBook Pro M1, 2020
+
+### Install Podman
+1. Run these commands
+```shell
+brew install podman
+```
 
 ### Install OpenShift Local
 1. Follow the instructions to install the latest release of [OpenShift Local](https://access.redhat.com/documentation/en-us/red_hat_openshift_local/2.28/html/getting_started_guide/installing#installing_red_hat_openshift_local)
@@ -34,7 +41,10 @@ oc login -u kubeadmin https://api.crc.testing:6443
 oc whoami
 ```
 ### Build container image example
-```shell 
+```shell
+git clone git@github.com:freemanpdwork/openai-quickstart-node.git
+cd openai-quickstart-node
+cp ../Containerfile . 
 podman build -f Containerfile -t quay.io/<repository>/<repository_name>
 quay.io/<repository>/<repository_name>
 ```
