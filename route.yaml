@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: genai
+spec:
+  host: genai-ai-demo.apps-crc.testing
+  path: "/" 
+  to:
+    kind: Service
+    name: genai-app-service

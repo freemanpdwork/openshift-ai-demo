@@ -41,14 +41,15 @@ quay.io/<repository>/<repository_name>
 ```shell
 oc create -f deployment.yaml
 oc create -f service.yaml
-
-todo: create route. add openai key  
+oc create -f route.yaml
+todo: add openai key secret and variable  
 ```
 
 ### Clean up
 ```shell
 oc delete -f deployment.yaml
 oc delete -f service.yaml
+oc delete -f route.yaml
 ```
 
 ### Issues
