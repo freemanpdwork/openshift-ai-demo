@@ -49,6 +49,7 @@ podman build -f Containerfile -t quay.io/<repository>/<repository_name>
 ```
 
 ### Deploy container to 
+Run these commmands from the "openshift-openai-demo" folder
 ```shell
 vim deployment.yaml
 update "image: quay.io/<repository>/<repository_name>"
