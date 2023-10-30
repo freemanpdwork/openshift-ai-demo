@@ -7,6 +7,8 @@ This is an example pet name generator app used in the OpenAI API [quickstart tut
 - 4 physical CPU cores
 - 9 GB of free memory
 - 35 GB of storage space
+- quay.io account
+- openai.com account, credits, and api key 
 - Note: tested on MacBook Pro M1, 2020
 
 ### Install OpenShift Local
