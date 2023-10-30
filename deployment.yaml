@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: genai-app
-          image: quay.io/freemanpd_work/aidemo2:latest
+          image: : quay.io/<repository>/<repository_name>
           ports:
             - containerPort: 3000
