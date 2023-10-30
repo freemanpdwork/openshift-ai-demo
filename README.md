@@ -1,7 +1,7 @@
 # openshift-ai-demo
 WIP
 
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
+This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). These steps cover how to deploy it on [OpenShift Local](https://developers.redhat.com/products/openshift-local/overview), however, it's also K8's agnostic. 
 
 ### Requirements
 - 4 physical CPU cores
@@ -12,10 +12,7 @@ This is an example pet name generator app used in the OpenAI API [quickstart tut
 - Note: tested on MacBook Pro M1, 2020
 
 ### Install OpenShift Local
-1. Follow instructions to install the latest release of OpenShift Local
-
-https://access.redhat.com/documentation/en-us/red_hat_openshift_local/2.28/html/getting_started_guide/installing#installing_red_hat_openshift_local
-
+1. Follow the instructions to install the latest release of [OpenShift Local](https://access.redhat.com/documentation/en-us/red_hat_openshift_local/2.28/html/getting_started_guide/installing#installing_red_hat_openshift_local)
 - Note: don't forget to download pull secret. You'll need this to complete the following steps.
 
 ### Setup OpenShift Local
